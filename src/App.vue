@@ -1,20 +1,28 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script lang="ts">
+import RegistrationForm from './components/form/RegistrationForm.vue';
+
+
+export default {
+  setup() {
+  },
+  components: {
+    RegistrationForm,
+  }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <v-app>
+    <v-app-bar>
+      <v-spacer></v-spacer>
+    </v-app-bar>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <v-main>
+      <v-container>
+        <RegistrationForm />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
