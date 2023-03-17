@@ -1,8 +1,8 @@
-import type { RuleValidation } from "../Rules/Rule";
+import type { Validatable } from "../Validation/Validatable";
 
 export type FieldType = 'unknown' | 'string' | 'file' | 'email' | 'date' | 'phone' | 'textarea';
 
-export interface Field {
+export interface Field extends Validatable {
   label: string;
   placeholder: string;
 
@@ -12,7 +12,4 @@ export interface Field {
   visible: boolean;
   required: boolean;
   disabled: boolean;
-  valid: boolean;
-
-  rules: RuleValidation[];
 }

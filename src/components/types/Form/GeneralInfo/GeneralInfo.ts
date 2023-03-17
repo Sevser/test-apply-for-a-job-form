@@ -5,6 +5,8 @@ import type { FileField } from "../../Field/FileField";
 import type { PhoneField } from "../../Field/PhoneField";
 import type { TextAreaField } from "../../Field/TextAreaField";
 import type { TextField } from "../../Field/TextField";
+import type { RuleValidation } from "../../Validation/Rule";
+import type { Validatable } from "../../Validation/Validatable";
 import type { Form } from "../Form";
 import AppliedPosition from "./Fields/AppliedPosition";
 import CoverLetter from "./Fields/CoverLettter";
@@ -16,7 +18,7 @@ import Name from "./Fields/Name";
 import Phone from "./Fields/Phone";
 import PreferredInterviewDate from "./Fields/PreferredInterviewDate";
 
-export class GeneralInfo implements Form {
+export class GeneralInfo implements Form, Validatable {
   label: string;
   fields: Field[];
 
@@ -29,6 +31,8 @@ export class GeneralInfo implements Form {
   preferredInterViewDate: DateField;
   coverLetter: TextAreaField;
   cv: FileField;
+  valid: boolean;
+  rules: RuleValidation[];
 
   constructor() {
     this.label = 'SignUp';
@@ -41,6 +45,8 @@ export class GeneralInfo implements Form {
     this.preferredInterViewDate = PreferredInterviewDate();
     this.coverLetter = CoverLetter();
     this.cv = CV();
+    this.valid = false;
+    this.rules = [];
     this.fields = [
       this.name,
       this.lastName,

@@ -1,5 +1,5 @@
 import type { Field, FieldType } from "./Field";
-import type { RuleValidation } from "../Rules/Rule";
+import type { RuleValidation } from "../Validation/Rule";
 
 export class FileField implements Field {
   label: string;
