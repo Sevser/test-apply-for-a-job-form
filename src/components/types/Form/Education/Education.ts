@@ -20,7 +20,7 @@ export class Education extends Validable implements Form {
 
   constructor() {
     super();
-    this.label = 'SignUp';
+    this.label = 'Education';
     this.name = Name();
     this.startDate = StartDate();
     this.endDate = EndDate();

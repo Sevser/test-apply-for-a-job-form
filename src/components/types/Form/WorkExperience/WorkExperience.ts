@@ -21,7 +21,7 @@ export class WorkExperience extends Validable implements Form {
 
   constructor() {
     super();
-    this.label = 'SignUp';
+    this.label = 'Work experience';
     this.name = Name();
     this.startDate = StartDate();
     this.endDate = EndDate();

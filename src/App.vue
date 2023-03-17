@@ -1,14 +1,6 @@
-<script lang="ts">
-import RegistrationForm from './components/form/RegistrationForm.vue';
+<script setup lang="ts">
+import ApplyForm from './components/form/ApplyForm.vue';
 
-
-export default {
-  setup() {
-  },
-  components: {
-    RegistrationForm,
-  }
-}
 </script>
 
 <template>
@@ -17,9 +9,9 @@ export default {
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="mx-auto" style="width: max-content;">
       <v-container>
-        <RegistrationForm />
+        <ApplyForm />
       </v-container>
     </v-main>
   </v-app>

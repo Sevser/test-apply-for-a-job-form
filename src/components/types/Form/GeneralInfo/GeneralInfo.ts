@@ -35,7 +35,7 @@ export class GeneralInfo extends Validable implements Form {
 
   constructor() {
     super();
-    this.label = 'SignUp';
+    this.label = 'General info';
     this.name = Name();
     this.lastName = LastName();
     this.email = Email();

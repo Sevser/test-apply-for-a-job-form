@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    registration form    
+    work experience
   </div>
 </template>
 
