@@ -5,7 +5,9 @@ const Phone = () => new PhoneField({
   placeholder: 'Enter your phone',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default Phone;

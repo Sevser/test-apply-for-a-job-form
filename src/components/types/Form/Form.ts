@@ -1,6 +1,6 @@
-import type { Field } from "../Field/Field";
+import type { Validable } from "../Validation/Validatable";
 
 export interface Form {
   label: string;
-  fields: Field[];
+  fields: Validable[];
 }

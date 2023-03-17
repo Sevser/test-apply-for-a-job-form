@@ -5,7 +5,9 @@ const EarlyPossibleDate = () => new DateField({
   placeholder: 'Enter your early possible start date',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default EarlyPossibleDate;

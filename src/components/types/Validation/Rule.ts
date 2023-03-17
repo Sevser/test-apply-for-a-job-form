@@ -1,5 +1,3 @@
-import type { FieldType } from "../Field/Field";
-
-export type RuleValidation = (any: FieldType) => (boolean | string);
-export type RuleRequired = (any: FieldType) => (boolean);
-export type RuleDisabled = (any: FieldType) => (boolean);
+export type RuleValidation = (any?: any) => (boolean | string);
+export type RuleRequired = (any?: any) => (boolean);
+export type RuleDisabled = (any?: any) => (boolean);

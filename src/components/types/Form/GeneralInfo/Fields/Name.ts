@@ -5,7 +5,9 @@ const Name = () => new TextField({
   placeholder: 'Enter your name',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default Name;

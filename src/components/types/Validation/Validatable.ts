@@ -1,6 +1,12 @@
 import type { RuleValidation } from "./Rule";
 
-export interface Validatable {
-  valid: boolean;
+export class Validable {
   rules: RuleValidation[];
+  constructor() {
+    this.rules = [];
+  }
+
+  get valid(): boolean {
+    return this.rules.every((rule) => rule(this));
+  }
 }

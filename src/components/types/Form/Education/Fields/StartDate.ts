@@ -5,7 +5,9 @@ const StartDate = () => new DateField({
   placeholder: 'Enter your start education date',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default StartDate;

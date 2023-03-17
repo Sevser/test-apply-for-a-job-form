@@ -6,7 +6,7 @@ import type { PhoneField } from "../../Field/PhoneField";
 import type { TextAreaField } from "../../Field/TextAreaField";
 import type { TextField } from "../../Field/TextField";
 import type { RuleValidation } from "../../Validation/Rule";
-import type { Validatable } from "../../Validation/Validatable";
+import { Validable } from "../../Validation/Validatable";
 import type { Form } from "../Form";
 import AppliedPosition from "./Fields/AppliedPosition";
 import CoverLetter from "./Fields/CoverLettter";
@@ -18,9 +18,9 @@ import Name from "./Fields/Name";
 import Phone from "./Fields/Phone";
 import PreferredInterviewDate from "./Fields/PreferredInterviewDate";
 
-export class GeneralInfo implements Form, Validatable {
+export class GeneralInfo extends Validable implements Form {
   label: string;
-  fields: Field[];
+  fields: Validable[];
 
   name: TextField;
   lastName: TextField;
@@ -31,10 +31,10 @@ export class GeneralInfo implements Form, Validatable {
   preferredInterViewDate: DateField;
   coverLetter: TextAreaField;
   cv: FileField;
-  valid: boolean;
   rules: RuleValidation[];
 
   constructor() {
+    super();
     this.label = 'SignUp';
     this.name = Name();
     this.lastName = LastName();
@@ -45,7 +45,6 @@ export class GeneralInfo implements Form, Validatable {
     this.preferredInterViewDate = PreferredInterviewDate();
     this.coverLetter = CoverLetter();
     this.cv = CV();
-    this.valid = false;
     this.rules = [];
     this.fields = [
       this.name,
@@ -58,5 +57,9 @@ export class GeneralInfo implements Form, Validatable {
       this.coverLetter,
       this.cv,
     ];
+  }
+
+  get valid(): boolean {
+    return this.rules.every((rule) => rule(this)) && this.fields.every((field: Validable) => field.valid);
   }
 }

@@ -5,7 +5,9 @@ const PreferredInterviewDate = () => new DateField({
   placeholder: 'Enter your preferred interveiw date',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default PreferredInterviewDate;

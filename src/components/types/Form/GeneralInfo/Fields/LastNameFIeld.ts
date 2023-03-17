@@ -5,7 +5,9 @@ const LastName = () => new TextField({
   placeholder: 'Enter your last name',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default LastName;

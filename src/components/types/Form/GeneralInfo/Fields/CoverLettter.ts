@@ -5,7 +5,9 @@ const CoverLetter = () => new TextAreaField({
   placeholder: 'Enter your cover letter',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default CoverLetter;

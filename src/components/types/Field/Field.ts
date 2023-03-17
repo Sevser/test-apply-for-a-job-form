@@ -1,8 +1,6 @@
-import type { Validatable } from "../Validation/Validatable";
-
 export type FieldType = 'unknown' | 'string' | 'file' | 'email' | 'date' | 'phone' | 'textarea';
 
-export interface Field extends Validatable {
+export interface Field {
   label: string;
   placeholder: string;
 

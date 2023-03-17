@@ -5,7 +5,9 @@ const Email = () => new EmailField({
   placeholder: 'Enter your email',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default Email;

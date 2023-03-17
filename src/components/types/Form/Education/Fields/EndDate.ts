@@ -5,7 +5,9 @@ const EndDate = () => new DateField({
   placeholder: 'Enter your end education date',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default EndDate;

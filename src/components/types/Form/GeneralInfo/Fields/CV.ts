@@ -5,7 +5,9 @@ const CV = () => new FileField({
   placeholder: 'Attach your CV',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default CV;

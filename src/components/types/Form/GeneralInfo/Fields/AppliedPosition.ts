@@ -5,7 +5,9 @@ const AppliedPosition = () => new TextField({
   placeholder: 'Enter your applied position',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default AppliedPosition;

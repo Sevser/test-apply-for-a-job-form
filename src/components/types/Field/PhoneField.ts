@@ -1,7 +1,10 @@
 import type { Field, FieldType } from "./Field";
 import type { RuleValidation } from "../Validation/Rule";
+import { Validable } from "../Validation/Validatable";
 
-export class PhoneField implements Field {
+type PhoneFieldConstructor = Validable & Omit<Field, 'type'>;
+
+export class PhoneField extends Validable implements Field {
   label: string;
   placeholder: string;
 
@@ -11,10 +14,10 @@ export class PhoneField implements Field {
   visible: boolean;
   required: boolean;
   disabled: boolean;
-  valid: boolean;
 
   rules: RuleValidation[];
-  constructor(prop?: Partial<Omit<Field, 'type'>>) {
+  constructor(prop?: Partial<PhoneFieldConstructor>) {
+    super();
     this.label = prop?.label || '';
     this.type = 'phone';
     this.placeholder = prop?.placeholder || '';
@@ -23,7 +26,6 @@ export class PhoneField implements Field {
     this.visible = prop?.visible || false;
     this.required = prop?.required || false;
     this.disabled = prop?.disabled || false;
-    this.valid = prop?.valid || false;
 
     this.rules = prop?.rules || [];
   }

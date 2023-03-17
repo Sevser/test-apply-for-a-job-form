@@ -5,7 +5,9 @@ const Degree = () => new TextField({
   placeholder: 'Enter your degree',
   visible: true,
   required: true,
-  rules: [],
+  rules: [
+    (v?: string) => (!!v || 'Field required'),
+  ],
 });
 
 export default Degree;

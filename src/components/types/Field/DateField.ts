@@ -1,7 +1,10 @@
 import type { Field, FieldType } from "./Field";
+import { Validable } from "../Validation/Validatable";
 import type { RuleValidation } from "../Validation/Rule";
 
-export class DateField implements Field {
+type DateFieldConstructor = Validable & Omit<Field, 'type'>;
+
+export class DateField extends Validable implements Field {
   label: string;
   placeholder: string;
 
@@ -11,10 +14,10 @@ export class DateField implements Field {
   visible: boolean;
   required: boolean;
   disabled: boolean;
-  valid: boolean;
 
   rules: RuleValidation[];
-  constructor(prop?: Partial<Omit<Field, 'type'>>) {
+  constructor(prop?: Partial<DateFieldConstructor>) {
+    super();
     this.label = prop?.label || '';
     this.type = 'date';
     this.placeholder = prop?.placeholder || '';
@@ -23,7 +26,6 @@ export class DateField implements Field {
     this.visible = prop?.visible || false;
     this.required = prop?.required || false;
     this.disabled = prop?.disabled || false;
-    this.valid = prop?.valid || false;
 
     this.rules = prop?.rules || [];
   }
