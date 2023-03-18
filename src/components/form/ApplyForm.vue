@@ -26,9 +26,6 @@ onMounted(() => {
 
 <template>
   <v-form ref="form">
-    <div class="text-h3 mb-3">
-      Apply for a job form
-    </div>
     <GeneralInfo :general-info="store.applyForm.generalInfo" />
     <v-divider></v-divider>
     <EducationForm :education-info="store.applyForm.educationInfo" />
@@ -38,7 +35,7 @@ onMounted(() => {
       <v-btn @click="apply" color="primary" class="mr-2">
         apply
       </v-btn>
-      <v-btn>
+      <v-btn @click="store.clearApplyForm">
         reset
       </v-btn>
     </v-row>

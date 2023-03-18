@@ -1,7 +1,6 @@
 import { isField, type Field } from '@/components/types/Field/Field';
 import { ApplyForm } from '@/components/types/Form/ApplyForm'
 import { Education } from '@/components/types/Form/Education/Education'
-import type { EducationInfo } from '@/components/types/Form/Education/EducationInfo';
 import { WorkExperience } from '@/components/types/Form/WorkExperience/WorkExperience';
 import { defineStore } from 'pinia'
 
@@ -13,6 +12,15 @@ export const useApplyForm = defineStore('applyForm', {
 
   },
   actions: {
+    clearApplyForm() {
+      this.applyForm.educationInfo.educations = [];
+      this.applyForm.educationInfo.hasNoEducation.value = null;
+      this.applyForm.workExperience.workExperiences = [];
+      this.applyForm.workExperience.hasNoWorkExperience.value = null;
+      this.applyForm.generalInfo.fields.forEach((field) => {
+        field.value = '';
+      });
+    },
     addNewEducation() {
       this.applyForm.educationInfo.educations.push(new Education());
     },

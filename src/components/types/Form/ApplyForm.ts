@@ -20,7 +20,7 @@ export class ApplyForm extends Validable implements Form {
     this.rules = [];
   }
 
-  get fields(): Validable[] {
+  get fields(): (Validable)[] {
     return [
       this.generalInfo,
       this.educationInfo,

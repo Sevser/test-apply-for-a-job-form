@@ -6,6 +6,10 @@ import ApplyForm from './components/form/ApplyForm.vue';
 <template>
   <v-app>
     <v-app-bar>
+      <v-app-bar-title>
+        Apply for a Job form
+      </v-app-bar-title>
+
       <v-spacer></v-spacer>
     </v-app-bar>
 
