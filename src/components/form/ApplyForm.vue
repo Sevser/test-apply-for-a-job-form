@@ -4,14 +4,18 @@ import { useApplyForm } from '@/stores/applyForm';
 import EducationForm from './EducationForm.vue';
 import GeneralInfo from './GeneralInfo.vue';
 import WorkExperience from './WorkExperience.vue';
+import type { VuetifyValidation } from '../../plugins/vuetify/validation';
 
-// declare a ref to hold the element reference
-// the name must match template ref value
 const form = ref(null)
 
 const store = useApplyForm();
 
-const apply = () => {
+const apply = async () => {
+  if (form.value === null) {
+    return;
+  }
+  const formValue = form?.value as VuetifyValidation;
+  console.log(await formValue.validate())
   console.log(store.applyForm);
 }
 
@@ -22,11 +26,14 @@ onMounted(() => {
 
 <template>
   <v-form ref="form">
+    <div class="text-h3 mb-3">
+      Apply for a job form
+    </div>
     <GeneralInfo :general-info="store.applyForm.generalInfo" />
-    <EducationForm :has-no-education="store.applyForm.hasNoEducation" :educations="store.applyForm.education" />
-    <WorkExperience />
-    <v-row>
-      <v-btn @click="apply" color="primary">
+    <EducationForm :education-info="store.applyForm.educationInfo" />
+    <WorkExperience :work-experience="store.applyForm.workExperience" />
+    <v-row class="justify-end mt-4">
+      <v-btn @click="apply" color="primary" class="mr-2">
         apply
       </v-btn>
       <v-btn>

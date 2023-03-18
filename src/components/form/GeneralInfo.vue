@@ -29,41 +29,44 @@ const cols = computed(() => {
 </script>
 
 <template>
-  <v-row class="flex-shrink-0">
+  <v-row class="flex-shrink-0 mt-2 mb-2">
+    <div class="text-h5 mb-3">
+      {{ generalInfo.label }}
+    </div>
     <v-col :cols="cols">
       <v-text-field :label="generalInfo.name.label" :placeholder="generalInfo.name.placeholder"
-        :type="generalInfo.name.type" :rules="generalInfo.name.rules" />
+        :name="generalInfo.name.name" :type="generalInfo.name.type" :rules="generalInfo.name.rules" />
     </v-col>
     <v-col :cols="cols">
       <v-text-field :label="generalInfo.lastName.label" :placeholder="generalInfo.lastName.placeholder"
-        :type="generalInfo.lastName.type" :rules="generalInfo.lastName.rules" />
+        :name="generalInfo.lastName.name" :type="generalInfo.lastName.type" :rules="generalInfo.lastName.rules" />
     </v-col>
     <v-col :cols="cols">
       <v-text-field :label="generalInfo.email.label" :placeholder="generalInfo.email.placeholder"
-        :type="generalInfo.email.type" :rules="generalInfo.email.rules" />
+        :name="generalInfo.email.name" :type="generalInfo.email.type" :rules="generalInfo.email.rules" />
     </v-col>
     <v-col :cols="cols">
       <v-text-field :label="generalInfo.phone.label" :placeholder="generalInfo.phone.placeholder"
-        :type="generalInfo.phone.type" :rules="generalInfo.phone.rules" />
+        :name="generalInfo.phone.name" :type="generalInfo.phone.type" :rules="generalInfo.phone.rules" />
     </v-col>
     <v-col :cols="cols">
       <v-text-field :label="generalInfo.appliedPosition.label" :placeholder="generalInfo.appliedPosition.placeholder"
-        :rules="generalInfo.appliedPosition.rules" />
+        :name="generalInfo.appliedPosition.name" :rules="generalInfo.appliedPosition.rules" />
     </v-col>
     <v-col :cols="cols">
       <DatepickerField :label="generalInfo.earlyPossibleDate.label" :rules="generalInfo.earlyPossibleDate.rules"
-        :placeholder="generalInfo.earlyPossibleDate.placeholder" />
+        :name="generalInfo.earlyPossibleDate.name" :placeholder="generalInfo.earlyPossibleDate.placeholder" />
     </v-col>
     <v-col :cols="cols">
       <DatepickerField :label="generalInfo.preferredInterViewDate.label" :rules="generalInfo.preferredInterViewDate.rules"
-        :placeholder="generalInfo.preferredInterViewDate.placeholder" />
+        :name="generalInfo.preferredInterViewDate.name" :placeholder="generalInfo.preferredInterViewDate.placeholder" />
     </v-col>
     <v-col :cols="cols">
       <v-textarea :label="generalInfo.coverLetter.label" :placeholder="generalInfo.coverLetter.placeholder"
-        :rules="generalInfo.coverLetter.rules" />
+        :name="generalInfo.coverLetter.name" :rules="generalInfo.coverLetter.rules" />
     </v-col>
     <v-col :cols="cols">
-      <v-file-input :label="generalInfo.cv.label" :placeholder="generalInfo.cv.placeholder"
+      <v-file-input :label="generalInfo.cv.label" :placeholder="generalInfo.cv.placeholder" :name="generalInfo.cv.name"
         :rules="generalInfo.cv.rules" />
     </v-col>
   </v-row>

@@ -1,4 +1,4 @@
-export type FieldType = 'unknown' | 'string' | 'file' | 'email' | 'date' | 'phone' | 'textarea';
+export type FieldType = 'unknown' | 'string' | 'file' | 'email' | 'date' | 'phone' | 'textarea' | 'checkbox';
 
 export interface Field {
   label: string;
