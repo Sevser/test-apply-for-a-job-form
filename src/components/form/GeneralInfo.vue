@@ -54,12 +54,19 @@ const cols = computed(() => {
         :name="generalInfo.appliedPosition.name" :rules="generalInfo.appliedPosition.rules" />
     </v-col>
     <v-col :cols="cols">
-      <DatepickerField :label="generalInfo.earlyPossibleDate.label" :rules="generalInfo.earlyPossibleDate.rules"
-        :name="generalInfo.earlyPossibleDate.name" :placeholder="generalInfo.earlyPossibleDate.placeholder" />
+      <v-input :model-value="generalInfo.earlyPossibleDate.value" :rules="generalInfo.earlyPossibleDate.rules"
+        :name="generalInfo.earlyPossibleDate.name">
+        <DatepickerField :label="generalInfo.earlyPossibleDate.label" :name="generalInfo.earlyPossibleDate.name"
+          :placeholder="generalInfo.earlyPossibleDate.placeholder" />
+      </v-input>
     </v-col>
     <v-col :cols="cols">
-      <DatepickerField :label="generalInfo.preferredInterViewDate.label" :rules="generalInfo.preferredInterViewDate.rules"
-        :name="generalInfo.preferredInterViewDate.name" :placeholder="generalInfo.preferredInterViewDate.placeholder" />
+      <v-input :model-value="generalInfo.preferredInterViewDate.value" :rules="generalInfo.preferredInterViewDate.rules"
+        :name="generalInfo.preferredInterViewDate.name">
+        <DatepickerField :label="generalInfo.preferredInterViewDate.label"
+          :rules="generalInfo.preferredInterViewDate.rules" :name="generalInfo.preferredInterViewDate.name"
+          :placeholder="generalInfo.preferredInterViewDate.placeholder" />
+      </v-input>
     </v-col>
     <v-col :cols="cols">
       <v-textarea :label="generalInfo.coverLetter.label" :placeholder="generalInfo.coverLetter.placeholder"

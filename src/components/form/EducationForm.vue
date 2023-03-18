@@ -35,39 +35,49 @@ const cols = computed(() => {
     <div class="text-h5 mb-3">
       {{ educationInfo.label }}
     </div>
-    <v-checkbox :label="educationInfo.hasNoEducation.label" :value="educationInfo.hasNoEducation.value" />
-    <template v-if="!educationInfo.hasNoEducation.value">
-      <v-card v-for="(ed, index) of educationInfo.educations" :key="index" class="mb-2">
-        <template #text>
-          <v-row class="flex-shrink-0">
-            <v-col :cols="cols">
-              <v-text-field :label="ed.name.label" :placeholder="ed.name.placeholder" :name="ed.name.name"
-                :type="ed.name.type" :rules="ed.name.rules" />
-            </v-col>
-            <v-col :cols="cols">
-              <v-text-field :label="ed.degree.label" :placeholder="ed.degree.placeholder" :name="ed.degree.name"
-                :type="ed.degree.type" :rules="ed.degree.rules" />
-            </v-col>
-            <v-col :cols="cols">
-              <DatepickerField :label="ed.startDate.label" :rules="ed.startDate.rules" :name="ed.startDate.name"
-                :placeholder="ed.startDate.placeholder" />
-            </v-col>
-            <v-col :cols="cols">
-              <DatepickerField :label="ed.endDate.label" :rules="ed.endDate.rules" :name="ed.endDate.name"
-                :placeholder="ed.endDate.placeholder" />
-            </v-col>
-          </v-row>
-        </template>
-        <template #actions>
-          <v-btn color="error" variant="flat" @click="store.removeEducation(ed.uuid)">
-            remove education
-          </v-btn>
-        </template>
-      </v-card>
-      <v-btn @click="store.addNewEducation">
-        Add new education
-      </v-btn>
-    </template>
+    <v-input :model-value="educationInfo" :rules="educationInfo.rules" :name="educationInfo.uuid" class="w-100">
+      <template #default>
+        <div class="d-flex flex-column w-100">
+          <v-checkbox :label="educationInfo.hasNoEducation.label" :value="educationInfo.hasNoEducation.value" />
+          <template v-if="!educationInfo.hasNoEducation.value">
+            <v-card v-for="(ed, index) of educationInfo.educations" :key="index" class="mb-2">
+              <template #text>
+                <v-row class="flex-shrink-0">
+                  <v-col :cols="cols">
+                    <v-text-field :label="ed.name.label" :placeholder="ed.name.placeholder" :name="ed.name.name"
+                      :type="ed.name.type" :rules="ed.name.rules" />
+                  </v-col>
+                  <v-col :cols="cols">
+                    <v-text-field :label="ed.degree.label" :placeholder="ed.degree.placeholder" :name="ed.degree.name"
+                      :type="ed.degree.type" :rules="ed.degree.rules" />
+                  </v-col>
+                  <v-col :cols="cols">
+                    <v-input :model-value="ed.startDate.value" :rules="ed.startDate.rules" :name="ed.startDate.name">
+                      <DatepickerField :label="ed.startDate.label" :rules="ed.startDate.rules" :name="ed.startDate.name"
+                        :placeholder="ed.startDate.placeholder" />
+                    </v-input>
+                  </v-col>
+                  <v-col :cols="cols">
+                    <v-input :model-value="ed.endDate.value" :rules="ed.endDate.rules" :name="ed.endDate.name">
+                      <DatepickerField :label="ed.endDate.label" :rules="ed.endDate.rules" :name="ed.endDate.name"
+                        :placeholder="ed.endDate.placeholder" />
+                    </v-input>
+                  </v-col>
+                </v-row>
+              </template>
+              <template #actions>
+                <v-btn color="error" variant="flat" @click="store.removeEducation(ed.uuid)">
+                  remove education
+                </v-btn>
+              </template>
+            </v-card>
+            <v-btn @click="store.addNewEducation">
+              Add new education
+            </v-btn>
+          </template>
+        </div>
+      </template>
+    </v-input>
   </div>
 </template>
 

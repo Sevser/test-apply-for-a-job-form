@@ -17,7 +17,7 @@ export class EducationInfo extends Validable implements Form {
     this.hasNoEducation = HasNoEducation();
     this.rules = [
       (v: EducationInfo) => {
-        if (v.hasNoEducation) {
+        if (v.hasNoEducation.value === false) {
           return true;
         }
         return v.educations.length !== 0 || 'You have to fill education info'

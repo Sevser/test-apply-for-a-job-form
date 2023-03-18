@@ -30,7 +30,9 @@ onMounted(() => {
       Apply for a job form
     </div>
     <GeneralInfo :general-info="store.applyForm.generalInfo" />
+    <v-divider></v-divider>
     <EducationForm :education-info="store.applyForm.educationInfo" />
+    <v-divider></v-divider>
     <WorkExperience :work-experience="store.applyForm.workExperience" />
     <v-row class="justify-end mt-4">
       <v-btn @click="apply" color="primary" class="mr-2">

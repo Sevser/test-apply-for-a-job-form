@@ -13,11 +13,11 @@ export class WorkExperienceInfo extends Validable implements Form {
   constructor() {
     super();
     this.workExperiences = [];
-    this.label = 'Education info';
+    this.label = 'Work experience info';
     this.hasNoWorkExperience = HasNoWorkExperience();
     this.rules = [
       (v: WorkExperienceInfo) => {
-        if (v.hasNoWorkExperience) {
+        if (v.hasNoWorkExperience.value === false) {
           return true;
         }
         return v.workExperiences.length !== 0 || 'You have to fill work experience info'

@@ -35,39 +35,51 @@ const cols = computed(() => {
     <div class="text-h5 mb-3">
       {{ workExperience.label }}
     </div>
-    <v-checkbox :label="workExperience.hasNoWorkExperience.label" :value="workExperience.hasNoWorkExperience.value" />
-    <template v-if="!workExperience.hasNoWorkExperience.value">
-      <v-card v-for="(we, index) of workExperience.workExperiences" :key="index" class="mb-2">
-        <template #text>
-          <v-row class="flex-shrink-0">
-            <v-col :cols="cols">
-              <v-text-field :label="we.name.label" :placeholder="we.name.placeholder" :name="we.name.name"
-                :type="we.name.type" :rules="we.name.rules" />
-            </v-col>
-            <v-col :cols="cols">
-              <v-textarea :label="we.responsibilities.label" :placeholder="we.responsibilities.placeholder"
-                :name="we.responsibilities.name" :type="we.responsibilities.type" :rules="we.responsibilities.rules" />
-            </v-col>
-            <v-col :cols="cols">
-              <DatepickerField :label="we.startDate.label" :rules="we.startDate.rules" :name="we.startDate.name"
-                :placeholder="we.startDate.placeholder" />
-            </v-col>
-            <v-col :cols="cols">
-              <DatepickerField :label="we.endDate.label" :rules="we.endDate.rules" :name="we.endDate.name"
-                :placeholder="we.endDate.placeholder" />
-            </v-col>
-          </v-row>
-        </template>
-        <template #actions>
-          <v-btn color="error" variant="flat" @click="store.removeWorkExperience(we.uuid)">
-            remove education
-          </v-btn>
-        </template>
-      </v-card>
-      <v-btn @click="store.addNewWorkExperience">
-        Add new work experience
-      </v-btn>
-    </template>
+    <v-input :model-value="workExperience" :rules="workExperience.rules" :name="workExperience.uuid" class="w-100">
+      <template #default>
+        <div class="d-flex flex-column w-100">
+          <v-checkbox :label="workExperience.hasNoWorkExperience.label"
+            :value="workExperience.hasNoWorkExperience.value" />
+          <template v-if="!workExperience.hasNoWorkExperience.value">
+            <v-card v-for="(we, index) of workExperience.workExperiences" :key="index" class="mb-2">
+              <template #text>
+                <v-row class="flex-shrink-0">
+                  <v-col :cols="cols">
+                    <v-text-field :label="we.name.label" :placeholder="we.name.placeholder" :name="we.name.name"
+                      :type="we.name.type" :rules="we.name.rules" />
+                  </v-col>
+                  <v-col :cols="cols">
+                    <v-textarea :label="we.responsibilities.label" :placeholder="we.responsibilities.placeholder"
+                      :name="we.responsibilities.name" :type="we.responsibilities.type"
+                      :rules="we.responsibilities.rules" />
+                  </v-col>
+                  <v-col :cols="cols">
+                    <v-input :model-value="we.startDate.value" :rules="we.startDate.rules" :name="we.startDate.name">
+                      <DatepickerField :label="we.startDate.label" :rules="we.startDate.rules" :name="we.startDate.name"
+                        :placeholder="we.startDate.placeholder" />
+                    </v-input>
+                  </v-col>
+                  <v-col :cols="cols">
+                    <v-input :model-value="we.endDate.value" :rules="we.endDate.rules" :name="we.endDate.name">
+                      <DatepickerField :label="we.endDate.label" :rules="we.endDate.rules" :name="we.endDate.name"
+                        :placeholder="we.endDate.placeholder" />
+                    </v-input>
+                  </v-col>
+                </v-row>
+              </template>
+              <template #actions>
+                <v-btn color="error" variant="flat" @click="store.removeWorkExperience(we.uuid)">
+                  remove education
+                </v-btn>
+              </template>
+            </v-card>
+            <v-btn @click="store.addNewWorkExperience">
+              Add new work experience
+            </v-btn>
+          </template>
+        </div>
+      </template>
+    </v-input>
   </div>
 </template>
 
