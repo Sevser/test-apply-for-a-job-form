@@ -20,7 +20,7 @@ import PreferredInterviewDate from "./Fields/PreferredInterviewDate";
 
 export class GeneralInfo extends Validable implements Form {
   label: string;
-  fields: Validable[];
+  fields: (Validable & Field)[];
 
   name: TextField;
   lastName: TextField;

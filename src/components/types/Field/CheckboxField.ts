@@ -20,7 +20,7 @@ export class CheckboxField extends Validable implements Field {
   constructor(prop?: Partial<CheckboxFieldConstructor>) {
     super();
     this.label = prop?.label || '';
-    this.type = 'checkbox';
+    this.type = 'date';
     this.name = prop?.name || '';
     this.placeholder = prop?.placeholder || '';
     this.value = prop?.value || '';

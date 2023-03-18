@@ -38,29 +38,39 @@ const cols = computed(() => {
     <v-input :model-value="educationInfo" :rules="educationInfo.rules" :name="educationInfo.uuid" class="w-100">
       <template #default>
         <div class="d-flex flex-column w-100">
-          <v-checkbox :label="educationInfo.hasNoEducation.label" :value="educationInfo.hasNoEducation.value" />
+          <v-checkbox :label="educationInfo.hasNoEducation.label" :model-value="educationInfo.hasNoEducation.value"
+            @update:modelValue="store.setHasNoEducation" />
           <template v-if="!educationInfo.hasNoEducation.value">
-            <v-card v-for="(ed, index) of educationInfo.educations" :key="index" class="mb-2">
+            <v-card v-for="(ed, index) of educationInfo.educations" :key="index" class="mb-2"
+              style="overflow: unset; z-index: unset">
               <template #text>
                 <v-row class="flex-shrink-0">
                   <v-col :cols="cols">
-                    <v-text-field :label="ed.name.label" :placeholder="ed.name.placeholder" :name="ed.name.name"
-                      :type="ed.name.type" :rules="ed.name.rules" />
+                    <v-text-field :label="ed.name.label" :placeholder="ed.name.placeholder" :name="ed.name.name + ed.uuid"
+                      @update:modelValue="$e => store.updateEdiucationInfoField(ed.uuid, ed.name.uuid, $e)"
+                      :model-value="ed.name.value" :type="ed.name.type" :rules="ed.name.rules" />
                   </v-col>
                   <v-col :cols="cols">
-                    <v-text-field :label="ed.degree.label" :placeholder="ed.degree.placeholder" :name="ed.degree.name"
-                      :type="ed.degree.type" :rules="ed.degree.rules" />
+                    <v-text-field :label="ed.degree.label" :placeholder="ed.degree.placeholder"
+                      :name="ed.degree.name + ed.uuid"
+                      @update:modelValue="$e => store.updateEdiucationInfoField(ed.uuid, ed.degree.uuid, $e)"
+                      :model-value="ed.degree.value" :type="ed.degree.type" :rules="ed.degree.rules" />
                   </v-col>
                   <v-col :cols="cols">
-                    <v-input :model-value="ed.startDate.value" :rules="ed.startDate.rules" :name="ed.startDate.name">
-                      <DatepickerField :label="ed.startDate.label" :rules="ed.startDate.rules" :name="ed.startDate.name"
-                        :placeholder="ed.startDate.placeholder" />
+                    <v-input :model-value="ed.startDate.value" :rules="ed.startDate.rules"
+                      :name="ed.startDate.name + ed.uuid">
+                      <DatepickerField :label="ed.startDate.label" :rules="ed.startDate.rules"
+                        :name="ed.startDate.name + ed.uuid" month-picker
+                        @update:modelValue="($e: any) => store.updateEdiucationInfoField(ed.uuid, ed.startDate.uuid, $e)"
+                        :model-value="ed.startDate.value" :placeholder="ed.startDate.placeholder" />
                     </v-input>
                   </v-col>
                   <v-col :cols="cols">
-                    <v-input :model-value="ed.endDate.value" :rules="ed.endDate.rules" :name="ed.endDate.name">
-                      <DatepickerField :label="ed.endDate.label" :rules="ed.endDate.rules" :name="ed.endDate.name"
-                        :placeholder="ed.endDate.placeholder" />
+                    <v-input :model-value="ed.endDate.value" :rules="ed.endDate.rules" :name="ed.endDate.name + ed.uuid">
+                      <DatepickerField :label="ed.endDate.label" :rules="ed.endDate.rules"
+                        :name="ed.endDate.name + ed.uuid" month-picker
+                        @update:modelValue="($e: any) => store.updateEdiucationInfoField(ed.uuid, ed.endDate.uuid, $e)"
+                        :model-value="ed.endDate.value" :placeholder="ed.endDate.placeholder" />
                     </v-input>
                   </v-col>
                 </v-row>

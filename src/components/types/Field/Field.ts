@@ -12,3 +12,8 @@ export interface Field {
   required: boolean;
   disabled: boolean;
 }
+
+
+export const isField = (object: any): object is Field => {
+  return ['label', 'value', 'placeholder', 'name', 'type', 'visible', 'required', 'disabled'].every(prop => prop in object);
+}

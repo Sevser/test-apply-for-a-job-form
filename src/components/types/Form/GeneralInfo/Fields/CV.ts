@@ -1,5 +1,4 @@
 import { FileField } from "@/components/types/Field/FileField";
-import { fieldRequired } from "@/components/types/Validation/ValidationRules";
 
 const CV = () => new FileField({
   label: 'CV',
@@ -8,7 +7,9 @@ const CV = () => new FileField({
   visible: true,
   required: true,
   rules: [
-    fieldRequired,
+    (v?: string) => {
+      return !!v?.length || 'Field required'
+    }
   ],
 });
 

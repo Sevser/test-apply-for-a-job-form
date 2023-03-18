@@ -17,7 +17,7 @@ export class WorkExperienceInfo extends Validable implements Form {
     this.hasNoWorkExperience = HasNoWorkExperience();
     this.rules = [
       (v: WorkExperienceInfo) => {
-        if (v.hasNoWorkExperience.value === false) {
+        if (v.hasNoWorkExperience.value === true) {
           return true;
         }
         return v.workExperiences.length !== 0 || 'You have to fill work experience info'
