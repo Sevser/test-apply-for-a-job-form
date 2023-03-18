@@ -10,7 +10,7 @@ import ApplyForm from './components/form/ApplyForm.vue';
     </v-app-bar>
 
     <v-main class="mx-auto" style="width: max-content;">
-      <v-container>
+      <v-container class="overflow-y-auto">
         <ApplyForm />
       </v-container>
     </v-main>

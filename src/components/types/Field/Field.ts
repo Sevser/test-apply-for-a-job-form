@@ -3,6 +3,7 @@ export type FieldType = 'unknown' | 'string' | 'file' | 'email' | 'date' | 'phon
 export interface Field {
   label: string;
   placeholder: string;
+  name: string;
 
   type: FieldType;
   value: any;

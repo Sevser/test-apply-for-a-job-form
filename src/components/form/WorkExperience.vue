@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="flex-shrink-0">
     work experience
   </div>
 </template>

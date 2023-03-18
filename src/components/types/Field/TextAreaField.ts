@@ -10,6 +10,7 @@ export class TextAreaField extends Validable implements Field {
 
   type: FieldType;
   value: any;
+  name: string;
 
   visible: boolean;
   required: boolean;
@@ -20,6 +21,7 @@ export class TextAreaField extends Validable implements Field {
     super();
     this.label = prop?.label || '';
     this.type = 'textarea';
+    this.name = prop?.name || '';
     this.placeholder = prop?.placeholder || '';
     this.value = prop?.value || '';
 

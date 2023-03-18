@@ -9,6 +9,7 @@ export class TextField extends Validable implements Field {
   placeholder: string;
 
   type: FieldType;
+  name: string;
   value: any;
 
   visible: boolean;
@@ -20,6 +21,7 @@ export class TextField extends Validable implements Field {
     super();
     this.label = prop?.label || '';
     this.type = 'string';
+    this.name = prop?.name || '';
     this.placeholder = prop?.placeholder || '';
     this.value = prop?.value || '';
 

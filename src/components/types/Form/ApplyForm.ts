@@ -9,15 +9,32 @@ export class ApplyForm extends Validable implements Form {
   label: string;
   generalInfo: GeneralInfo;
   education: Education[];
+  hasNoEducation: boolean;
   workExperience: WorkExperience[];
+  hasNoWorkExperience: boolean;
   rules: RuleValidation[];
   constructor() {
     super();
     this.label = 'Apply form';
     this.generalInfo = new GeneralInfo();
     this.education = [];
+    this.hasNoEducation = false;
     this.workExperience = [];
-    this.rules = [];
+    this.hasNoWorkExperience = false;
+    this.rules = [
+      (v: ApplyForm) => {
+        if (v.hasNoEducation) {
+          return true;
+        }
+        return v.education.length !== 0 || 'You have to fill at least one education field'
+      },
+      (v: ApplyForm) => {
+        if (v.hasNoWorkExperience) {
+          return true;
+        }
+        return v.workExperience.length !== 0 || 'You have to fill at least one work experience field'
+      }
+    ];
   }
 
   get fields(): Validable[] {
