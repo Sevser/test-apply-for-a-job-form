@@ -47,12 +47,13 @@ const cols = computed(() => {
                 <v-row class="flex-shrink-0">
                   <v-col :cols="cols">
                     <v-text-field :label="ed.name.label" :placeholder="ed.name.placeholder" :name="ed.name.name + ed.uuid"
+                      color="primary" variant="underlined"
                       @update:modelValue="$e => store.updateEdiucationInfoField(ed.uuid, ed.name.uuid, $e)"
                       :model-value="ed.name.value" :type="ed.name.type" :rules="ed.name.rules" />
                   </v-col>
                   <v-col :cols="cols">
-                    <v-text-field :label="ed.degree.label" :placeholder="ed.degree.placeholder"
-                      :name="ed.degree.name + ed.uuid"
+                    <v-text-field :label="ed.degree.label" :placeholder="ed.degree.placeholder" color="primary"
+                      variant="underlined" :name="ed.degree.name + ed.uuid"
                       @update:modelValue="$e => store.updateEdiucationInfoField(ed.uuid, ed.degree.uuid, $e)"
                       :model-value="ed.degree.value" :type="ed.degree.type" :rules="ed.degree.rules" />
                   </v-col>
@@ -76,12 +77,12 @@ const cols = computed(() => {
                 </v-row>
               </template>
               <template #actions>
-                <v-btn color="error" variant="flat" @click="store.removeEducation(ed.uuid)">
+                <v-btn color="error" variant="outlined" @click="store.removeEducation(ed.uuid)" :rounded="0">
                   remove education
                 </v-btn>
               </template>
             </v-card>
-            <v-btn @click="store.addNewEducation">
+            <v-btn variant="outlined" @click="store.addNewEducation" :rounded="0">
               Add new education
             </v-btn>
           </template>

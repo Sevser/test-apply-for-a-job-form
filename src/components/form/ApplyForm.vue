@@ -32,10 +32,10 @@ onMounted(() => {
     <v-divider></v-divider>
     <WorkExperience :work-experience="store.applyForm.workExperience" />
     <v-row class="justify-end mt-4">
-      <v-btn @click="apply" color="primary" class="mr-2">
+      <v-btn @click="apply" variant="outlined" class="mr-2" :rounded="0">
         apply
       </v-btn>
-      <v-btn @click="store.clearApplyForm">
+      <v-btn @click="store.clearApplyForm" variant="outlined" :rounded="0">
         reset
       </v-btn>
     </v-row>

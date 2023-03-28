@@ -47,11 +47,13 @@ const cols = computed(() => {
                 <v-row class="flex-shrink-0">
                   <v-col :cols="cols">
                     <v-text-field :label="we.name.label" :placeholder="we.name.placeholder" :name="we.name.name + we.uuid"
+                      color="primary" variant="underlined"
                       @update:modelValue="$e => store.updateWorkExperienceInfoField(we.uuid, we.name.uuid, $e)"
                       :model-value="we.name.value" :type="we.name.type" :rules="we.name.rules" />
                   </v-col>
                   <v-col :cols="cols">
                     <v-textarea :label="we.responsibilities.label" :placeholder="we.responsibilities.placeholder"
+                      color="primary" variant="underlined"
                       @update:modelValue="$e => store.updateWorkExperienceInfoField(we.uuid, we.responsibilities.uuid, $e)"
                       :model-value="we.responsibilities.value" :name="we.responsibilities.name + we.uuid"
                       :type="we.responsibilities.type" :rules="we.responsibilities.rules" />

@@ -37,31 +37,32 @@ const cols = computed(() => {
       {{ generalInfo.label }}
     </div>
     <v-col :cols="cols">
-      <v-text-field :label="generalInfo.name.label" :placeholder="generalInfo.name.placeholder"
-        @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.name.uuid, $e)"
+      <v-text-field :label="generalInfo.name.label" :placeholder="generalInfo.name.placeholder" color="primary"
+        variant="underlined" @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.name.uuid, $e)"
         :model-value="generalInfo.name.value" :name="generalInfo.name.name" :type="generalInfo.name.type"
         :rules="generalInfo.name.rules" />
     </v-col>
     <v-col :cols="cols">
-      <v-text-field :label="generalInfo.lastName.label" :placeholder="generalInfo.lastName.placeholder"
-        @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.lastName.uuid, $e)"
+      <v-text-field :label="generalInfo.lastName.label" :placeholder="generalInfo.lastName.placeholder" color="primary"
+        variant="underlined" @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.lastName.uuid, $e)"
         :model-value="generalInfo.lastName.value" :name="generalInfo.lastName.name" :type="generalInfo.lastName.type"
         :rules="generalInfo.lastName.rules" />
     </v-col>
     <v-col :cols="cols">
-      <v-text-field :label="generalInfo.email.label" :placeholder="generalInfo.email.placeholder"
-        @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.email.uuid, $e)"
+      <v-text-field :label="generalInfo.email.label" :placeholder="generalInfo.email.placeholder" color="primary"
+        variant="underlined" @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.email.uuid, $e)"
         :model-value="generalInfo.email.value" :name="generalInfo.email.name" :type="generalInfo.email.type"
         :rules="generalInfo.email.rules" />
     </v-col>
     <v-col :cols="cols">
-      <v-text-field :label="generalInfo.phone.label" :placeholder="generalInfo.phone.placeholder"
-        @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.phone.uuid, $e)"
+      <v-text-field :label="generalInfo.phone.label" :placeholder="generalInfo.phone.placeholder" color="primary"
+        variant="underlined" @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.phone.uuid, $e)"
         :model-value="generalInfo.phone.value" :name="generalInfo.phone.name" :type="generalInfo.phone.type"
         :rules="generalInfo.phone.rules" />
     </v-col>
     <v-col :cols="cols">
       <v-text-field :label="generalInfo.appliedPosition.label" :placeholder="generalInfo.appliedPosition.placeholder"
+        color="primary" variant="underlined"
         @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.appliedPosition.uuid, $e)"
         :model-value="generalInfo.appliedPosition.value" :name="generalInfo.appliedPosition.name"
         :rules="generalInfo.appliedPosition.rules" />
@@ -85,14 +86,16 @@ const cols = computed(() => {
     </v-col>
     <v-col :cols="cols">
       <v-textarea :label="generalInfo.coverLetter.label" :placeholder="generalInfo.coverLetter.placeholder"
+        color="primary" variant="underlined"
         @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.coverLetter.uuid, $e)"
         :model-value="generalInfo.coverLetter.value" :name="generalInfo.coverLetter.name"
         :rules="generalInfo.coverLetter.rules" />
     </v-col>
     <v-col :cols="cols">
       <v-file-input :label="generalInfo.cv.label" :placeholder="generalInfo.cv.placeholder" :name="generalInfo.cv.name"
+        color="primary" variant="underlined"
         @update:modelValue="($e: any) => store.updateGeneralInfoField(generalInfo.cv.uuid, $e)"
-        :model-value="generalInfo.cv.value" variant="solo" :rules="generalInfo.cv.rules" />
+        :model-value="generalInfo.cv.value" :rules="generalInfo.cv.rules" />
     </v-col>
   </v-row>
 </template>
